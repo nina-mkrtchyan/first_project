@@ -1,0 +1,14 @@
+.cafes {
+    margin: 30px;
+}
+
+.cafe {
+    border-bottom: 1px solid black;
+    height: 100px;
+    padding: 60px 20px 0px 20px;
+    margin: 1px;
+}
+
+.item {
+    margin: 20px;
+}

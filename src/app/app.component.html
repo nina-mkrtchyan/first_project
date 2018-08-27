@@ -1,0 +1,6 @@
+<app-header *ngIf="loginService.isLoggedIn"></app-header>
+<!--<router-outlet></router-outlet>-->
+
+<button (click)="showManageSwatchTags = !showManageSwatchTags">add smart tags</button>
+
+<app-manage-swatch-tags *ngIf="showManageSwatchTags" (onClosed)="showManageSwatchTags = false"></app-manage-swatch-tags>

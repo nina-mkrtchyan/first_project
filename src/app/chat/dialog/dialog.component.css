@@ -1,0 +1,38 @@
+.myMessage {
+    color: royalblue;
+    text-align: right;
+}
+
+form {
+    border: 1px solid grey;
+    position: absolute;
+    bottom: 0px;
+    width: 70%;
+}
+
+form input {
+    font-size: 15px;
+    width: 80%;
+    border: 0;
+    padding: 20px;
+}
+
+form button {
+    width: 15%;
+    float: right;
+
+    background: #123456;
+    color: white;
+    border: none;
+    padding: 20px;
+}
+
+.messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messages li {
+    padding: 5px 10px;
+}

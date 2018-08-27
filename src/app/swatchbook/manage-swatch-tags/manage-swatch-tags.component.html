@@ -1,0 +1,14 @@
+<div class="modal" name="modal">
+    <div class="modal-content">
+
+        <app-custom-type-row  *ngFor="let tags of swatchTags" [swatchTags]="tags"></app-custom-type-row>
+
+        <app-button [class]="'button'"
+                    (onchanged)="done()"
+        >done</app-button>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,13 @@
+nav a {
+    transition: all 0.5s;
+    color: red;
+    text-decoration: none;
+}
+
+nav a.active {
+    border-radius: 3px;
+    padding: 2px 8px;
+    background-color: red;
+    color: white;
+}
+

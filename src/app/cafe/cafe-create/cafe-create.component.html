@@ -1,0 +1,24 @@
+<div class="create-container">
+    <h1>Create Cafe</h1>
+
+    <form [formGroup]="createForm" (ngSubmit)="onCreate()">
+
+        <app-input [control]="createForm.get('name')"  [validationMessage]="this.createForm.get('name').errors" [type]="'text'">name</app-input>
+
+        <app-input [control]="createForm.get('address')" [validationMessage]="this.createForm.get('address').errors" [type]="'text'">address</app-input>
+
+        <app-input [control]="createForm.get('email')" [validationMessage]="this.createForm.get('email').errors" [type]="'text'">email</app-input>
+
+        <app-input [control]="createForm.get('phone_number')" [validationMessage]="this.createForm.get('phone_number').errors" [type]="'number'">phone number</app-input>
+
+        <app-input [control]="createForm.get('region_id')" [validationMessage]="this.createForm.get('region_id').errors" [type]="'text'">region id</app-input>
+
+        <app-input [control]="createForm.get('confirm_code')" [validationMessage]="this.createForm.get('confirm_code').errors" [type]="'text'">confirm code</app-input>
+
+        <app-input [control]="createForm.get('always_open')" [validationMessage]="this.createForm.get('always_open').errors" [type]="'dropDown'"  [values]="alwaysOpenValues">always open</app-input>
+
+        <app-button  type="submit" (onchanged)="onChanged()">Create</app-button>
+
+    </form>
+
+</div>

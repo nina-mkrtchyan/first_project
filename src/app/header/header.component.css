@@ -1,0 +1,12 @@
+.header {
+    background-color: #123456;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+

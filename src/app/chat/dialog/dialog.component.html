@@ -1,0 +1,19 @@
+<div *ngIf="userMessages">
+
+    <div *ngFor="let msg of userMessages.messages">
+        <div>
+            <div  [class.myMessage]="msg.senderId === currentUserId" >
+                {{msg.text}}
+            </div>
+        </div>
+    </div>
+
+
+    <form>
+        <input [(ngModel)]="newMessage" name="message">
+        <button class="pointer" (click)="sendMessage()">send</button>
+    </form>
+
+
+</div>
+

@@ -1,0 +1,31 @@
+<div class="form-item">
+
+  <label>
+    <ng-content></ng-content>
+  </label>
+
+  <br>
+
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'text'"  class="form-item">
+      <input [formControl]="control" [type]="'text'" (input)="newMessage($event.target.value)">
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'number'">
+      <input [formControl]="control" [type]="'text'">
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'dropDown'">
+      <select>
+        <option></option>
+        <option value="{{values[0]}}">{{values[0]}}</option>
+        <option value="{{values[1]}}">{{values[1]}}</option>
+      </select>
+    </ng-container>
+  </ng-container>
+
+  <br>
+
+  <div class="form-error" *ngIf="validationMessage">{{validationMessage | errorMessage}}</div>
+
+</div>

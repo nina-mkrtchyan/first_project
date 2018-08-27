@@ -1,0 +1,8 @@
+.create-container {
+    text-align: center;
+}
+
+.create-container input, select {
+    display: block;
+    margin: 20px auto;
+}

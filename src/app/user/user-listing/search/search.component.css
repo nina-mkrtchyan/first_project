@@ -1,0 +1,12 @@
+.search-container {
+    text-align: center;
+}
+
+.search-container input{
+    padding: 5px;
+    margin: 40px 30px;
+}
+
+.search-container button {
+    padding: 5px;
+}

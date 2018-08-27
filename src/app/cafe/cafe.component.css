@@ -1,0 +1,9 @@
+.form-item {
+    display: block;
+    height: 50px;
+    margin: 20px auto;
+}
+
+.form-error {
+    color: red;
+}

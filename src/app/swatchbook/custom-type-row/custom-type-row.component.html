@@ -1,0 +1,15 @@
+<div class="row">
+
+    <app-swatch-tag *ngFor="let tag of swatchTags"
+                    [swatchTag]="tag"
+                    (onClosed)="closeTag($event)"
+                    (onOpened)="openTag($event)"
+    ></app-swatch-tag>
+
+</div>
+
+<app-custom-type-row
+        *ngFor="let rowTags of openChildRows"
+        [swatchTags]="rowTags"
+></app-custom-type-row>
+

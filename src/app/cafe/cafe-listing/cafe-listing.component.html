@@ -1,0 +1,12 @@
+<app-search></app-search>
+
+<div *ngIf="cafes$ | async as data" class="cafes">
+
+    <div *ngFor="let item of data" class="cafe">
+        <span class="item">{{item.id}}</span>
+        <span class="item">{{item.name}}</span>
+        <button class="item" [routerLink]="item.id + '/edit/'">edit</button>
+    </div>
+
+</div>
+

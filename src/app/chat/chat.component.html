@@ -1,0 +1,26 @@
+<div class="clearfix chat">
+
+    <div class="left-container">
+        <table *ngIf="usersMessages$ | async as usersMessages" >
+
+            <tr *ngFor="let item of usersMessages"  (click)="selectUser(item.user.id)"  [class.active]="item.user.id === selectedUserId" >
+
+                <td  class="pointer" >
+                    {{ item.user.firstname }}
+
+                    <span *ngIf="item.hasNewMessage" class="new-message"></span>
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="right-container" *ngIf="loaded">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
+
+
+

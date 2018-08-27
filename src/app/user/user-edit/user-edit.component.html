@@ -1,0 +1,24 @@
+<div class="edit-container">
+  <h1>Edit User</h1>
+
+  <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+
+    <input placeholder="first name" formControlName="firstname">
+
+    <input placeholder="last name" formControlName="lastname">
+
+    <input placeholder="email" formControlName="email">
+
+    <input placeholder="phone_number" formControlName="phone_number">
+
+    <select formControlName="gender">
+      <option *ngFor="let gender of genders" [value]="gender.value" >
+        {{gender.name}}
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="!editForm.valid">Edit</button>
+
+  </form>
+
+</div>

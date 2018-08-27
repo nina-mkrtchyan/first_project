@@ -1,0 +1,17 @@
+<!--<div class="search-container">-->
+  <!--<input type="text" #searchKey [formControl]="searchControl">-->
+  <!--<button (click)="search(searchKey.value)">search</button>-->
+<!--</div>-->
+
+<div class="search-container">
+
+  <app-input [type]="'text'" [control]="searchControl"> </app-input>
+
+  <app-button (onchanged)="search($event)">
+    search
+  </app-button>
+
+</div>
+
+<br>
+

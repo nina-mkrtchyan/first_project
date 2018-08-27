@@ -1,0 +1,26 @@
+<div class="create-container">
+    <h1>Create User</h1>
+
+    <form [formGroup]="createForm" (ngSubmit)="onCreate()">
+
+        <input placeholder="first name" formControlName="firstname">
+
+        <input placeholder="last name" formControlName="lastname">
+
+        <input placeholder="email" formControlName="email">
+
+        <input placeholder="phone nsumber" formControlName="phone_number">
+
+        <select formControlName="gender" >
+            <option *ngFor="let gender of genders" [value]="gender.value" >
+                {{gender.name}}
+            </option>
+            <option value="3">3</option>
+        </select>
+
+        <button type="submit" [disabled]="!createForm.valid">Create</button>
+
+    </form>
+
+</div>
+

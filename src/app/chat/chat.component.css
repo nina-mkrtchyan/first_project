@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::before, .clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.chat {
+    position: relative;
+}
+
+.left-container {
+    float: left;
+    width: 30%;
+
+    padding-right: 10px;
+}
+
+.right-container {
+    float: right;
+    width: 70%;
+}
+
+table { width: 100%; }
+
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.new-message {
+    float: right;
+    display: inline-block;
+    background-color: red;
+    height: 10px;
+    width: 10px;
+}
+
+.active {
+    background-color:#123456 !important;
+    color: white;
+}
+
+

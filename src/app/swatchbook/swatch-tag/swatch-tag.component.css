@@ -1,0 +1,22 @@
+span {
+    padding: 5px;
+    cursor: pointer;
+    line-height: 2;
+    border-radius: 4.5px;
+    background-color: #f8f8f8;
+    color: #b1b1b1;
+    height: 45px;
+    margin: 5px 10px;
+    font-size: 24px;
+    text-align: center;
+
+    -webkit-box-shadow: 0 4px 6px rgba(0,0,0,.15);
+    box-shadow: 0 4px 6px rgba(0,0,0,.15);
+}
+
+.selected {
+    color: white;
+
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

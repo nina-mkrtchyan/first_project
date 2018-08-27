@@ -1,0 +1,27 @@
+<app-search *ngIf="isShown"> </app-search>
+
+<table *ngIf="isShown">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Id</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td class="pointer" [routerLink]="'/user/'+user.id">{{ user.firstname }}</td>
+    <td>{{ user.lastname }}</td>
+    <td>{{ user.id }}</td>
+    <td>
+      <button [routerLink]="'./'+user.id+'/edit/'">edit</button>
+    </td>
+    <td>
+      <button (click)="deleteUser(user.id)">delete</button>
+    </td>
+  </tr>
+</table>
+
+<!--<div style="text-align: center">-->
+  <!--<h2 *ngIf="!isShown">Result not found </h2>-->
+<!--</div>-->
+
