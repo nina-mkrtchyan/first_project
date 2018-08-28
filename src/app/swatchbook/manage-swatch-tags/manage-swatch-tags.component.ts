@@ -1,6 +1,7 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {SwatchbookService} from '../swatchbook.service';
 import {map, tap} from 'rxjs/operators';
+import {SwatchTag} from '../swatch-tag';
 
 @Component({
   selector: 'app-manage-swatch-tags',
@@ -19,7 +20,7 @@ export class ManageSwatchTagsComponent implements OnInit {
 
     @Output() onClosed = new EventEmitter<void>();
 
-    public swatchTags: any[] = [];
+    public swatchTags: SwatchTag[] = [];
 
     constructor(
         private swatchbookService: SwatchbookService
@@ -27,21 +28,20 @@ export class ManageSwatchTagsComponent implements OnInit {
 
     ngOnInit() {
         this.getSmartTags();
-
     }
 
-    public getSmartTags () : void {
+    public getSmartTags (): void {
         this.swatchbookService.getSmartTags()
             .pipe(
-                map( data => data['items']),
-                tap( data => {
+                map( (data: any) => data['items']),
+                tap( (data: SwatchTag[]) => {
                     data.forEach( item => {
                         this.swatchbookService.openedRowsId.push(item.id);
                     });
                     console.log(this.swatchbookService.openedRowsId);
                 })
             )
-            .subscribe( data => {
+            .subscribe( (data: SwatchTag[]) => {
                 this.swatchTags = data;
                 console.log(this.swatchTags);
             });

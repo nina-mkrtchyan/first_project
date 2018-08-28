@@ -4,5 +4,6 @@ export interface SwatchTag {
     color: string;
 
     identifiedCustomType: any;
+    identifiedCustomTypeId: number;
     canChooseMultiple: boolean;
 }

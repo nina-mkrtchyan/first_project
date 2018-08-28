@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SwatchbookService} from '../swatchbook.service';
+import {SwatchTag} from '../swatch-tag';
 
 @Component({
     selector: 'app-swatch-tag',
@@ -8,12 +9,12 @@ import {SwatchbookService} from '../swatchbook.service';
 })
 export class SwatchTagComponent implements OnInit {
 
-    @Input() swatchTag: any;
+    @Input() swatchTag: SwatchTag;
 
     @Output() onOpened: EventEmitter<number>;
     @Output() onClosed: EventEmitter<number>;
 
-    public isSelected = false;
+    public isSelected: boolean = false;
     public tagColor: string;
 
     constructor(
@@ -32,7 +33,7 @@ export class SwatchTagComponent implements OnInit {
             });
     }
 
-    public change(id: number) {
+    public change(id: number): void {
         console.log(id);
 
         if (this.isSelected) {
