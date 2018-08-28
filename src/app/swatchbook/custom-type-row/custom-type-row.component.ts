@@ -9,7 +9,7 @@ import {SwatchTag} from '../swatch-tag';
 })
 export class CustomTypeRowComponent implements OnInit {
 
-    @Input() swatchTags;
+    @Input() swatchTags: any;
 
     private canChooseMultiple: boolean;
     private selectedSwatchTagId: number;
@@ -44,22 +44,28 @@ export class CustomTypeRowComponent implements OnInit {
 
         if (!this.selectedSwatchTagId) {
             this.selectedSwatchTagId = id;
+
         } else {
             if (!this.canChooseMultiple) {
-                this.changeSelectedSwatchTag(id);
+                this.changeSelectedSwatchTag();
             }
+
+            this.selectedSwatchTagId = id;
         }
+
     }
 
-    private changeSelectedSwatchTag(id: number): void {
+    private changeSelectedSwatchTag(): void {
+        const id = this.selectedSwatchTagId;
+
         this.closeTag(this.selectedSwatchTagId);
 
-        this.swatchbookService.onChangedSelectedSwatchTag.next(this.selectedSwatchTagId);
-
-        this.selectedSwatchTagId = id;
+        this.swatchbookService.onChangedSelectedSwatchTag.next(id);
     }
 
     public closeTag(id: number): void {
+        console.log('close');
+
         const swatchTag = this.swatchTags.find( item => item.id == id);
         console.log(swatchTag);
 
@@ -70,32 +76,37 @@ export class CustomTypeRowComponent implements OnInit {
                 this.removeFromOpenRows(swatchTag);
             }
         }
+
+        if (!this.canChooseMultiple) {
+            this.selectedSwatchTagId = null;
+        }
     }
 
-    private removeFromOpenRows(swatchTag: any): void {
+    private removeFromOpenRows(swatchTag: SwatchTag): void {
         const index = this.swatchbookService.openedRowsId.indexOf(swatchTag.identifiedCustomTypeId);
-        this.swatchbookService.openedRowsId.splice(index, 1);
+        if (index > -1) {
+            console.log(index);
+            this.swatchbookService.openedRowsId.splice(index, 1);
 
-        console.log(this.swatchbookService.openedRowsId);
+            console.log(this.swatchbookService.openedRowsId);
+        }
+
     }
 
-
-    private addToOpenRows(swatchTag: any): void {
+    private addToOpenRows(swatchTag: SwatchTag): void {
         this.swatchbookService.openedRowsId.push(swatchTag.identifiedCustomTypeId);
 
         console.log(this.swatchbookService.openedRowsId);
     }
 
-
-    private removeToOpenChildRows(swatchTag: any): void {
+    private removeToOpenChildRows(swatchTag: SwatchTag): void {
         const i = this.openChildRows.indexOf(swatchTag.identifiedCustomType);
         this.openChildRows.splice(i, 1);
 
         console.log(this.openChildRows);
     }
 
-
-    private addToOpenChildRows(swatchTag: any): void {
+    private addToOpenChildRows(swatchTag: SwatchTag): void {
         this.openChildRows.push(swatchTag.identifiedCustomType);
 
         console.log(this.openChildRows);
